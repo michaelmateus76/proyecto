@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('../imgs/fondoC.png');
+  }
+
+  .cont{
+    left: 1050px;
+    top: 125px;
+    position: absolute;
+}
+
+  .devolver {
+    border-radius:4px;
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+
+  .nombre{
+      background-color: #1f53c5;
+  }

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('../imgs/inicio.png');
+  }
+
+  .cont_index{
+    left: 1020px;
+    top: 485px;
+    position: absolute;
+}
+
+  .devolver {
+    border-radius:4px;
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+
+ 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/styleLogin.css">
+  <title>Registro</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <form class="form-register" method="POST">
+    <h4>Registro</h4>
+    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa un correo">
+    <input class="controls" name="nombres" id="nombres" placeholder="Ingresa tus nombres">
+    <input class="controls" name="apellidos" id="apellidos" placeholder="Ingresa tus apellidos">
+    <input class="controls" name="cel" id="cel" placeholder="Ingresa tu celular">
+    <input class="controls" type="password" name="password" id="password" placeholder="Ingresa una contraseña">
+    <p> <a href="#">Acepto terminos y condiciones</a></p>
+    <input class="botons" type="submit" id="login" value="Registrar">
+  </form>
+
+  <input class="devolver" type="submit" value="Devolver" onclick="window.location.href='index.html'">
+
+</body>
+</html>
+
+<script>
+
+$('#login').click(function() {
+    console.log("click");
+    $.ajax({
+        method: 'GET',
+        url: 'http://18.234.193.29/cgi-bin/proyecto/contRegistro.py',
+        contentType: "application/json; charset=utf-8",
+        dataType: "JSON",
+        success: function(response) {
+            if(response == "None"){
+                mensaje()
+            }else{
+                mensaje2()
+            }
+        }
+    }); 
+});
+
+</script>

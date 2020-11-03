@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/styleConsultar.css">
+  <title>Consultar actividades</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+ <div class="cont">
+  <input class="devolver" type="submit" id="Consultar" value="Consultar">
+</div>
+
+<div id="Actividades"></div></br></div>
+</body>
+</html>
+
+<script>
+
+var totalActividades = new Array(100);
+
+$("#Actividades").hide();
+
+$("#Consultar").click(function(){
+	$("#Actividades").empty();
+	$("#Actividades").show();
+	getActividades();
+});
+
+function getActividades(){
+  console.log("entreee");
+	$.ajax({
+		url: 'http://18.234.193.29/cgi-bin/proyecto/contActividad.py',
+		type: "GET",
+		contentType: "application/json; charset=utf-8", 
+		dataType:"JSON",
+
+		    success: function(respuesta){
+			    var con=0;
+			    var tabla="";
+			    con=0;
+			    var con2=0;
+			    var est=0;
+			    var t=0;
+			    var text5="";
+			    var text6="";
+			    var prueba="addd";
+			    for (var i = 0; i < respuesta.length; i++) {
+
+				    totalActividades[con]='<div class="card" id="card">'+
+				    '<div class="content">'+
+				    '<div class="nombre">'+respuesta[i].nombre_act+'</div>'+
+				    '<div class="nombre"><a>'+respuesta[i].nombre_mat+'</a></div>'+
+				    '<div class="description">'+respuesta[i].descripcion+'</div></div>'+
+            '<div class="description">'+respuesta[i].fecha+'</div></div>'+
+            '<div class="description">'+respuesta[i].rango+'</div></div>'+
+					  $("#Actividades").append(totalActividades[con]);
+					  console.log(totalActividades[con]);
+
+					  con++;
+			    }
+			
+		
+		    }
+
+	    });
+    }
+</script>
